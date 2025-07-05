@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y&G Jewelry - Catálogo Online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8e8f0 0%, #e8d5e8 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6b2c5a 0%, #8b4576 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(107, 44, 90, 0.3);
+        }
+
+        .logo-container {
+            max-width: 200px;
+            margin: 0 auto 1rem;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .logo-placeholder {
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255,255,255,0.8);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 3rem 0;
+            background: rgba(255,255,255,0.8);
+            margin: 2rem 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .intro h2 {
+            color: #6b2c5a;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .category {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .category h3 {
+            color: #6b2c5a;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .product-item {
+            background: #f8f8f8;
+            border-radius: 15px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .product-item:hover {
+            transform: scale(1.05);
+            border-color: #8b4576;
+        }
+
+        .product-placeholder {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #e8d5e8 0%, #f8e8f0 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            color: #8b4576;
+        }
+
+        .product-name {
+            font-size: 0.9rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #6b2c5a 0%, #8b4576 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        .instagram-link {
+            background: linear-gradient(45deg, #405de6, #5b51d8, #833ab4, #c13584, #e1306c, #fd1d1d);
+            color: white !important;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-link:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="logoygpng.png" alt="Y&G Jewelry Logo">
+            </div>
+            <h1>Y&G Jewelry</h1>
+            <p class="subtitle">Joyería con estilo, hecha para brillar.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="intro">
+            <h2>✨ Bienvenidos a Nuestra Colección ✨</h2>
+            <p>Descubre nuestra exclusiva selección de joyas diseñadas para realzar tu belleza natural. Cada pieza es cuidadosamente seleccionada para ofrecerte calidad y elegancia excepcional.</p>
+        </section>
+
+        <div class="categories">
+            <div class="category">
+                <h3>💍 Anillos</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="product-placeholder">💍</div>
+                        <div class="product-name">Anillo Solitario</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">💍</div>
+                        <div class="product-name">Anillo Compromiso</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">💍</div>
+                        <div class="product-name">Anillo Eterno</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">💍</div>
+                        <div class="product-name">Anillo Vintage</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>📿 Collares</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="product-placeholder">📿</div>
+                        <div class="product-name">Collar Perlas</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">📿</div>
+                        <div class="product-name">Collar Diamantes</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">📿</div>
+                        <div class="product-name">Collar Cadena</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">📿</div>
+                        <div class="product-name">Collar Choker</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>👂 Aretes</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="product-placeholder">👂</div>
+                        <div class="product-name">Aretes Perla</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">👂</div>
+                        <div class="product-name">Aretes Largos</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">👂</div>
+                        <div class="product-name">Aretes Botón</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">👂</div>
+                        <div class="product-name">Aretes Aro</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <h3>💎 Pulseras</h3>
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="product-placeholder">💎</div>
+                        <div class="product-name">Pulsera Tenis</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">💎</div>
+                        <div class="product-name">Pulsera Charm</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">💎</div>
+                        <div class="product-name">Pulsera Cadena</div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-placeholder">💎</div>
+                        <div class="product-name">Pulsera Perlas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2>💬 ¿Te Interesa Alguna Pieza?</h2>
+            <p>Contáctanos para más información, precios y disponibilidad</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📱 WhatsApp</h3>
+                    <a href="https://wa.me/1234567890" target="_blank">+1 (234) 567-890</a>
+                </div>
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <a href="mailto:info@ygjewelry.com">info@ygjewelry.com</a>
+                </div>
+            </div>
+
+            <a href="https://instagram.com/ygjewelry" class="instagram-link" target="_blank">
+                📸 Síguenos en Instagram
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Y&G Jewelry. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
